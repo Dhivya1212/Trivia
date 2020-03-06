@@ -23,13 +23,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfb-LT-EhI">
-                                <rect key="frame" x="63" y="269.5" width="194.5" height="29.5"/>
-                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="21"/>
+                                <rect key="frame" x="57" y="273.5" width="206.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
                                 <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQe-zp-0Xb">
-                                <rect key="frame" x="35" y="319" width="250" height="34"/>
+                                <rect key="frame" x="35" y="314.5" width="250" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="vPY-u0-qKF"/>
                                 </constraints>
@@ -40,7 +40,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX4-91-JSS">
-                                <rect key="frame" x="234" y="373" width="51" height="33"/>
+                                <rect key="frame" x="234" y="368.5" width="51" height="33"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="21"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -561,9 +561,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbU-mv-MyF">
-                                                    <rect key="frame" x="15" y="16" width="80" height="21"/>
+                                                    <rect key="frame" x="15" y="16" width="60" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="C5w-Ui-iXk"/>
+                                                        <constraint firstAttribute="width" constant="60" id="C5w-Ui-iXk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.18731190640000001" green="0.073922919579999996" blue="0.30661026549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -612,25 +612,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcr-CQ-Myt">
-                                                    <rect key="frame" x="103" y="16" width="194" height="21"/>
+                                                    <rect key="frame" x="83" y="16" width="214" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-VV-Sxs">
-                                                    <rect key="frame" x="103" y="114" width="194" height="61"/>
+                                                    <rect key="frame" x="83" y="114" width="214" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-A9-Rv5">
-                                                    <rect key="frame" x="103" y="338.5" width="194" height="20.5"/>
+                                                    <rect key="frame" x="83" y="338.5" width="214" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvE-TE-pDW">
-                                                    <rect key="frame" x="103" y="52" width="194" height="21"/>
+                                                    <rect key="frame" x="83" y="52" width="214" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

@@ -11,7 +11,6 @@ import UIKit
 class HistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var gameCountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cricketLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!

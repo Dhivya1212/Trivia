@@ -62,7 +62,6 @@ class HistoryViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell") as! HistoryTableViewCell
         cell.selectionStyle = .none
         let data = gameData[indexPath.row]
-        cell.gameCountLabel.text = "Game " + String(indexPath.row + 1)
         cell.timeLabel.text = data.value(forKey: "time") as? String
         cell.nameLabel.text = data.value(forKey: "name") as? String
         cell.cricketLabel.text = data.value(forKey: "cricket") as? String
