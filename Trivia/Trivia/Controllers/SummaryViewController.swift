@@ -14,6 +14,7 @@ class SummaryViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var cricketerAnswer: UILabel!
     @IBOutlet weak var flagColorsAnswer: UILabel!
+    
     var getData: [String:Any]! = [String:Any]() // to receive previous viewcontroller's data.
     var flagColors: String! //to store selected colors.
     
@@ -21,7 +22,6 @@ class SummaryViewController: UIViewController {
         super.viewDidLoad()
         
         //filling out the summary page using getData variable's data.
-        
         helloLabel.text = "Hello " + (getData["name"] as! String)
         cricketerAnswer.text = (getData["cricketerSelected"] as! String)
         
@@ -44,12 +44,20 @@ class SummaryViewController: UIViewController {
         }
     }
     
+    //Moving to previous viewcontroller.
+    @IBAction func previousButtonAction(_ sender: Any) {
+        AppRouter.init().route(routeName: AppHelper.Route.previous.rawValue, fromContext: self, parameter: nil) 
+    }
+    
+    //Submit button is clicked.
     @IBAction func finishButtonAction(_ sender: Any) {
         
+        //gets current date.
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy hh:mm a"
         let result = formatter.string(from: date)
+        
         self.save(name: (getData["name"] as! String), time: result, cricket: (getData["cricketerSelected"] as! String), colors: flagColors)
         
     }
@@ -58,7 +66,7 @@ class SummaryViewController: UIViewController {
     func save(name: String,time: String,cricket: String,colors: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
+            return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -70,20 +78,19 @@ class SummaryViewController: UIViewController {
         game.setValue(cricket, forKeyPath: "cricket")
         game.setValue(colors, forKeyPath: "colors")
         
-        do { //if data saved successfully, an alert is shown with two options: if we click "ok", it moves to the home page, if we click "view history",it moves to the history page.
+        //if data saved successfully, an alert is shown with two options: if we click "ok", it moves to the home page, if we click "view history",it moves to the history page.
+        do {
+            
             try managedContext.save()
             let alert = UIAlertController(title: "Success", message: "Sucessfully Submitted!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                let nextViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-                self.navigationController?.pushViewController(nextViewController!, animated: true)
+                AppRouter.init().route(routeName: AppHelper.Route.home.rawValue, fromContext: self, parameter: nil)
             }))
             alert.addAction(UIAlertAction(title: "View History", style: .default, handler: { action in
-                let nextViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController
-                self.navigationController?.pushViewController(nextViewController!, animated: true)
-                
-            }))
-            
+                AppRouter.init().route(routeName: AppHelper.Route.history.rawValue, fromContext: self, parameter: nil)                
+            }))            
             self.present(alert, animated: true)
+            
         }
         catch { // alert pops-up if there is any trouble in saving data.
             

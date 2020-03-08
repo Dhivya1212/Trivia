@@ -15,22 +15,28 @@ class FlagQuestionViewController: UIViewController {
     @IBOutlet weak var checkThreeImageView: UIImageView!
     @IBOutlet weak var checkFourImageView: UIImageView!
     
-    var getData: [String:Any]! = [String:Any]() // for receiving the previous view controller's data.
-    var checkList: [Bool]! // to store what are all the options selected.
-    var answerArray: [String]! = [String]() //to store the colors of the selected options.
+    var getData: [String:Any]! = [String:Any]()    // for receiving the data from previous ViewController.
+    var checkList: [Bool]!    // to store what are all the options selected.
+    var answerArray: [String]! = [String]()    //to store the colors of the selected options.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //initializing checkList array.
         checkList = [false,false,false,false]
     }
     
+    //To move to the previous screen.
+    @IBAction func previousButtonAction(_ sender: Any) {
+        AppRouter.init().route(routeName: AppHelper.Route.previous.rawValue, fromContext: self, parameter: nil)
+    }
+    
+    //Some actions are done before moving to the next view controller and then moves.
     @IBAction func nextButtonAction(_ sender: UIButton) {
         
         answerArray.removeAll()
-        
-        if checkList.contains(true){ //if answers are selected,storing it in the array.
-            
+        //if answers are selected,storing it in the array.
+        if checkList.contains(true) {            
             if checkList[0] == true{
                 answerArray.append("White")
             }
@@ -43,14 +49,12 @@ class FlagQuestionViewController: UIViewController {
             if checkList[3] == true{
                 answerArray.append("Green")
             }
-            
-            // also moving to the next viewcontroller along with a data.
+            //moving to the next viewcontroller with data.
             getData["flagColors"] = answerArray
-            let nextViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SummaryViewController") as? SummaryViewController
-            nextViewController!.getData = getData
-            self.navigationController?.pushViewController(nextViewController!, animated: true)
-            
-        }else{ // showing alert if answers are not selected.
+            AppRouter.init().route(routeName: AppHelper.Route.summary.rawValue, fromContext: self, parameter: getData)
+        }
+            // shows alert if no answer is selected.
+        else{
             let alert = UIAlertController(title: "Information", message: "Please Select an Option!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -59,9 +63,9 @@ class FlagQuestionViewController: UIViewController {
     
     @IBAction func checkboxButtonAction(_ sender: UIButton) {
         
-        //using button tag, changing the values and storing it.
-        
+        //using button tag, handling the UI changes and storing the answer.
         if sender.tag == 0{
+            
             if checkList[sender.tag] == false{
                 checkOneImageView.image = UIImage(named: "Checked")
                 checkList[sender.tag] = true
@@ -71,6 +75,7 @@ class FlagQuestionViewController: UIViewController {
             }
             
         }else if sender.tag == 1{
+            
             if checkList[sender.tag] == false{
                 checkTwoImageView.image = UIImage(named: "Checked")
                 checkList[sender.tag] = true
@@ -78,7 +83,9 @@ class FlagQuestionViewController: UIViewController {
                 checkTwoImageView.image = UIImage(named: "Unchecked")
                 checkList[sender.tag] = false
             }
+            
         }else if sender.tag == 2{
+            
             if checkList[sender.tag] == false{
                 checkThreeImageView.image = UIImage(named: "Checked")
                 checkList[sender.tag] = true
@@ -86,7 +93,9 @@ class FlagQuestionViewController: UIViewController {
                 checkThreeImageView.image = UIImage(named: "Unchecked")
                 checkList[sender.tag] = false
             }
+            
         }else if sender.tag == 3{
+            
             if checkList[sender.tag] == false{
                 checkFourImageView.image = UIImage(named: "Checked")
                 checkList[sender.tag] = true
@@ -94,6 +103,7 @@ class FlagQuestionViewController: UIViewController {
                 checkFourImageView.image = UIImage(named: "Unchecked")
                 checkList[sender.tag] = false
             }
+            
         }
     }
     

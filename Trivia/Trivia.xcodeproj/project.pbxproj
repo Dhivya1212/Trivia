@@ -19,6 +19,9 @@
 		AF37D33B2411D6E300E281FD /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37D33A2411D6E300E281FD /* SummaryViewController.swift */; };
 		AF37D33D2411F1DF00E281FD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37D33C2411F1DF00E281FD /* HistoryViewController.swift */; };
 		AF37D33F2411F21A00E281FD /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37D33E2411F21A00E281FD /* HistoryTableViewCell.swift */; };
+		AF579835241262630096D7D5 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF579834241262630096D7D5 /* AppRouter.swift */; };
+		AF579838241265640096D7D5 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF579837241265640096D7D5 /* AppHelper.swift */; };
+		AFFFB60D241538F100FAAD94 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFFB60C241538F100FAAD94 /* GameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		AF37D33A2411D6E300E281FD /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		AF37D33C2411F1DF00E281FD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		AF37D33E2411F21A00E281FD /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		AF579834241262630096D7D5 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		AF579837241265640096D7D5 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		AFFFB60C241538F100FAAD94 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 		AF37D31024115E0300E281FD /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
+				AF5798362412653F0096D7D5 /* Helper */,
+				AF579831241261470096D7D5 /* Router */,
+				AF5798302412606F0096D7D5 /* TableViewCells */,
 				AF37D330241176E900E281FD /* Controllers */,
 				AF37D32F241176CE00E281FD /* ViewModel */,
 				AF37D32E241176C200E281FD /* View */,
@@ -92,7 +101,7 @@
 		AF37D32F241176CE00E281FD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AF37D33E2411F21A00E281FD /* HistoryTableViewCell.swift */,
+				AFFFB60C241538F100FAAD94 /* GameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +116,30 @@
 				AF37D33C2411F1DF00E281FD /* HistoryViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AF5798302412606F0096D7D5 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AF37D33E2411F21A00E281FD /* HistoryTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		AF579831241261470096D7D5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AF579834241262630096D7D5 /* AppRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AF5798362412653F0096D7D5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AF579837241265640096D7D5 /* AppHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +218,12 @@
 				AF37D32B2411680400E281FD /* HomeViewController.swift in Sources */,
 				AF37D31224115E0300E281FD /* AppDelegate.swift in Sources */,
 				AF37D31C24115E0300E281FD /* Trivia.xcdatamodeld in Sources */,
+				AFFFB60D241538F100FAAD94 /* GameViewModel.swift in Sources */,
 				AF37D3322411981800E281FD /* FlagQuestionViewController.swift in Sources */,
 				AF37D33B2411D6E300E281FD /* SummaryViewController.swift in Sources */,
 				AF37D31424115E0300E281FD /* SceneDelegate.swift in Sources */,
+				AF579835241262630096D7D5 /* AppRouter.swift in Sources */,
+				AF579838241265640096D7D5 /* AppHelper.swift in Sources */,
 				AF37D33D2411F1DF00E281FD /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,14 +16,16 @@ class HomeViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         nameField.delegate = self
-        
+
         //keyboard observer to move a view up when textfield is edited.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     //function for keyboard appearing action
     @objc func keyboardWillShow(notification: NSNotification) {
+        
         if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 120
@@ -33,6 +35,7 @@ class HomeViewController: UIViewController,UITextFieldDelegate {
     
     //function for keyboard disappearing action
     @objc func keyboardWillHide(notification: NSNotification) {
+        
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
@@ -41,18 +44,22 @@ class HomeViewController: UIViewController,UITextFieldDelegate {
     //next button action
     @IBAction func nextButtonAction(_ sender: UIButton) {
         
-        if nameField.text == ""{ //if textfield has no value alert is shown.
+        //if textfield is empty, alert is shown.
+        if nameField.text == ""{
             let alert = UIAlertController(title: "Information", message: "Please Enter Your Name!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else{ //if textfield has some value, we move to the next viewcontroller also passing data.
+            //if textfield has some name, we move to the next viewcontroller with the name.
+        else{
             nameField.resignFirstResponder()
-            let nextViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CricketQuestionViewController") as? CricketQuestionViewController
-            nextViewController!.name = nameField.text!
-            self.navigationController?.pushViewController(nextViewController!, animated: true)
+            AppRouter.init().route(routeName: AppHelper.Route.cricket.rawValue, fromContext: self, parameter: nameField.text)
         }
-        
+    }
+    
+    //Navigating to History page from home page.
+    @IBAction func historyButtonAction(_ sender: Any) {
+        AppRouter.init().route(routeName: AppHelper.Route.history.rawValue, fromContext: self, parameter: nil)
     }
     
     //textfield delegate
